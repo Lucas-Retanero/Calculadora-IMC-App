@@ -5,9 +5,10 @@
 Este aplicativo foi desenvolvido em React Native e tem como principal objetivo o cálculo do Índice de Massa Corporal (IMC). A aplicação solicita ao usuário os dados de peso e altura para processar o cálculo e exibir o resultado, juntamente com a classificação correspondente, de acordo com os padrões de saúde.
 
 <p align="center">
+  <br>
   <img src="./assets/icon-calculadora.png" width="300">
+  <br>
 </p>
-
 
 ---
 
