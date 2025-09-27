@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet, TextInput, Pressable, Keyboard, TouchableWithoutFeedback, Alert, KeyboardAvoidingView,} from 'react-native';
+import { View, Text, StyleSheet, TextInput, Pressable, Keyboard, TouchableWithoutFeedback, Alert, KeyboardAvoidingView } from 'react-native';
 import { useState, useRef } from 'react';
 
 export default function App() {
@@ -50,8 +50,7 @@ export default function App() {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      {/* Isso serve para quando clicar fora, fechar o teclado no celular. Mas se for no web, não funciona e precisa tirar o TouchableWithoutFeedback */}
-      <KeyboardAvoidingView style={styles.app} behavior='padding'>
+      <KeyboardAvoidingView style={styles.app} behavior="padding">
         <View style={styles.card}>
           <View style={styles.tituloContainer}>
             <Text style={styles.titulo}>Calcule seu IMC</Text>
@@ -69,7 +68,7 @@ export default function App() {
               keyboardType="numeric"
               value={peso}
               onChangeText={setPeso}
-              returnKeyType="next" 
+              returnKeyType="next"
               onSubmitEditing={() => alturaInputRef.current.focus()}
               placeholderTextColor="#adb5bd"
             />
@@ -80,8 +79,8 @@ export default function App() {
               value={altura}
               onChangeText={setAltura}
               ref={alturaInputRef}
-              returnKeyType="done" 
-              onSubmitEditing={calcularIMC} 
+              returnKeyType="done"
+              onSubmitEditing={calcularIMC}
               placeholderTextColor="#adb5bd"
             />
           </View>
@@ -174,7 +173,7 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: '#4180ab', 
+    backgroundColor: '#4180ab',
     width: '100%',
     height: 50,
     borderRadius: 8,
