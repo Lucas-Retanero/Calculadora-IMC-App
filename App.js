@@ -1,34 +1,34 @@
-import { View, Text, StyleSheet, TextInput, Pressable, Keyboard, TouchableWithoutFeedback, Alert, KeyboardAvoidingView } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Pressable, Keyboard, TouchableWithoutFeedback, Alert, StatusBar } from 'react-native';
 import { useState, useRef } from 'react';
 
 export default function App() {
-  const [peso, setPeso] = useState('');
+  const [peso, setpeso] = useState('');
   const [altura, setAltura] = useState('');
-  const [resultado, setResultado] = useState(null);
+  const [imc, setImc] = useState(null);
   const [classificacao, setClassificacao] = useState('');
 
-  const alturaInputRef = useRef(null);
+  const alturaRef = useRef(null);
 
-  function calcularIMC() {
+  function calcular() {
     Keyboard.dismiss();
 
     const p = parseFloat(peso.replace(',', '.'));
     const a = parseFloat(altura.replace(',', '.'));
 
     if (isNaN(p) || isNaN(a) || p <= 0 || a <= 0) {
-      Alert.alert('Erro', 'Por favor, digite um peso e uma altura válidos!');
-      setResultado(null);
+      Alert.alert('Erro', 'Digite um peso e uma altura válidos!');
+      setImc(null);
       setClassificacao('');
       return;
     }
 
     const imc = p / (a * a);
-    setResultado(imc);
+    setImc(imc);
 
     if (imc < 18.5) {
       setClassificacao('Abaixo do peso');
     } else if (imc <= 24.9) {
-      setClassificacao('Peso normal');
+      setClassificacao('peso normal');
     } else if (imc <= 29.9) {
       setClassificacao('Sobrepeso');
     } else if (imc <= 34.9) {
@@ -40,36 +40,36 @@ export default function App() {
     }
   }
 
-  function limparCampos() {
-    setPeso('');
+  function limpar() {
+    setpeso('');
     setAltura('');
-    setResultado(null);
+    setImc(null);
     setClassificacao('');
     Keyboard.dismiss();
   }
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <KeyboardAvoidingView style={styles.app} behavior="padding">
+      <View style={styles.app}>
+      <StatusBar barStyle="dark-content" backgroundColor="#e4ebf0" />
         <View style={styles.card}>
           <View style={styles.tituloContainer}>
             <Text style={styles.titulo}>Calcule seu IMC</Text>
           </View>
 
           <Text style={styles.subtitulo}>
-            Preencha os campos abaixo para descobrir seu Índice de Massa
-            Corporal.
+            Preencha os campos abaixo para descobrir seu Índice de Massa Corporal.
           </Text>
 
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.input}
-              placeholder="Peso (ex: 70.5)"
+              placeholder="peso (ex: 70.5)"
               keyboardType="numeric"
               value={peso}
-              onChangeText={setPeso}
+              onChangeText={setpeso}
               returnKeyType="next"
-              onSubmitEditing={() => alturaInputRef.current.focus()}
+              onSubmitEditing={() => alturaRef.current.focus()}
               placeholderTextColor="#adb5bd"
             />
             <TextInput
@@ -78,38 +78,32 @@ export default function App() {
               keyboardType="numeric"
               value={altura}
               onChangeText={setAltura}
-              ref={alturaInputRef}
+              ref={alturaRef}
               returnKeyType="done"
-              onSubmitEditing={calcularIMC}
+              onSubmitEditing={calcular}
               placeholderTextColor="#adb5bd"
             />
           </View>
 
           <Pressable
-            style={({ pressed }) => [
-              styles.button,
-              pressed && styles.buttonPressed,
-            ]}
-            onPress={calcularIMC}>
-            <Text style={styles.buttonText}>Calcular</Text>
+            style={({ pressed }) => [styles.botao, pressed && styles.botaoPressionado]}
+            onPress={calcular}>
+            <Text style={styles.botaoTexto}>Calcular</Text>
           </Pressable>
 
-          {resultado !== null && (
-            <View style={styles.resultContainer}>
-              <Text style={styles.resultValue}>{resultado.toFixed(2)}</Text>
-              <Text style={styles.resultClassification}>{classificacao}</Text>
+          {imc !== null && (
+            <View style={styles.resultadoContainer}>
+              <Text style={styles.resultadoValor}>{imc.toFixed(2)}</Text>
+              <Text style={styles.resultadoclassificacao}>{classificacao}</Text>
               <Pressable
-                style={({ pressed }) => [
-                  styles.clearButton,
-                  pressed && styles.clearButtonPressed,
-                ]}
-                onPress={limparCampos}>
-                <Text style={styles.clearButtonText}>Limpar</Text>
+                style={({ pressed }) => [styles.botaoLimpar, pressed && styles.botaoLimparPressionado]}
+                onPress={limpar}>
+                <Text style={styles.botaoLimparTexto}>Limpar</Text>
               </Pressable>
             </View>
           )}
         </View>
-      </KeyboardAvoidingView>
+      </View>
     </TouchableWithoutFeedback>
   );
 }
@@ -121,9 +115,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 20,
   },
-
   card: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
     borderRadius: 16,
     padding: 25,
     shadowColor: '#000',
@@ -132,7 +125,6 @@ const styles = StyleSheet.create({
     shadowRadius: 6,
     elevation: 8,
   },
-
   tituloContainer: {
     borderBottomWidth: 1,
     borderBottomColor: '#4180ab',
@@ -140,27 +132,23 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     alignItems: 'center',
   },
-
   titulo: {
     fontSize: 32,
     fontWeight: 'bold',
     color: '#4180ab',
     textAlign: 'center',
   },
-
   subtitulo: {
     fontSize: 16,
     color: '#6c757d',
     textAlign: 'center',
     marginBottom: 30,
   },
-
   inputContainer: {
     width: '100%',
     gap: 15,
     marginBottom: 25,
   },
-
   input: {
     backgroundColor: '#f8f9fa',
     height: 50,
@@ -171,8 +159,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     color: '#6c757d',
   },
-
-  button: {
+  botao: {
     backgroundColor: '#4180ab',
     width: '100%',
     height: 50,
@@ -185,13 +172,31 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
-
-  buttonPressed: {
+  botaoPressionado: {
     backgroundColor: '#4a8abc',
     opacity: 0.9,
   },
-
-  clearButton: {
+  botaoTexto: {
+    fontSize: 18,
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  resultadoContainer: {
+    marginTop: 30,
+    alignItems: 'center',
+    gap: 5,
+  },
+  resultadoValor: {
+    fontSize: 48,
+    fontWeight: 'bold',
+    color: '#4180ab',
+  },
+  resultadoclassificacao: {
+    fontSize: 18,
+    color: '#343a40',
+    fontWeight: '500',
+  },
+  botaoLimpar: {
     backgroundColor: '#d3544a',
     width: '100%',
     height: 40,
@@ -200,39 +205,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 20,
   },
-
-  clearButtonPressed: {
+  botaoLimparPressionado: {
     backgroundColor: '#e67c73',
     opacity: 0.9,
   },
-
-  buttonText: {
-    fontSize: 18,
-    color: '#ffffff',
-    fontWeight: 'bold',
-  },
-
-  resultContainer: {
-    marginTop: 30,
-    alignItems: 'center',
-    gap: 5,
-  },
-
-  resultValue: {
-    fontSize: 48,
-    fontWeight: 'bold',
-    color: '#4180ab',
-  },
-
-  resultClassification: {
-    fontSize: 18,
-    color: '#343a40',
-    fontWeight: '500',
-  },
-
-  clearButtonText: {
+  botaoLimparTexto: {
     fontSize: 16,
-    color: '#ffffff',
+    color: '#fff',
     fontWeight: 'bold',
   },
 });
