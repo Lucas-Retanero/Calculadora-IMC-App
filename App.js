@@ -50,7 +50,7 @@ export default function App() {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      {/*Isso serve para quando clicar fora, fechar o teclado no celular. Mas se for no web, não funciona e precisa tirar o TouchableWithoutFeedback*/}
+      {/* Isso serve para quando clicar fora, fechar o teclado no celular. Mas se for no web, não funciona e precisa tirar o TouchableWithoutFeedback */}
       <KeyboardAvoidingView style={styles.app} behavior='padding'>
         <View style={styles.card}>
           <View style={styles.tituloContainer}>
