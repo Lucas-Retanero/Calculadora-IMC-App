@@ -1,15 +1,15 @@
 {
   "expo": {
-    "name": "Calculadora-IMC",
+    "name": "Calculadora IMC",
     "slug": "Calculadora-IMC",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/icon-calculadora.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
+      "image": "./assets/icon-calculadora.png",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "ios": {
@@ -17,13 +17,19 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon-calculadora.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.lucasretanero.CalculadoraIMC"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/icon-calculadora.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c8507916-6148-43d0-9cc1-5dc637a6cac7"
+      }
     }
   }
 }
