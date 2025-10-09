@@ -6,7 +6,7 @@ Este aplicativo foi desenvolvido em React Native e tem como principal objetivo o
 
 <p align="center">
   <br>
-  <img src="./assets/icon-calculadora.png" width="300">
+  <img src="./assets/icon-app.png" width="300">
   <br>
 </p>
 
