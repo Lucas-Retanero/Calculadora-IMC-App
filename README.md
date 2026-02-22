@@ -23,7 +23,7 @@ O aplicativo utiliza uma identidade visual moderna na cor **Azul (#4180ab)**, pr
 
 ## Principais Funcionalidades
 
-- **Seleção de Perfil Inteligente**: Ajusta a lógica de cálculo para **Adultos**, **Idosos (60+)** e **Crianças (2-19 meses    )**.
+- **Seleção de Perfil Inteligente**: Ajusta a lógica de cálculo para **Adultos**, **Idosos (60+)** e **Crianças (2-19 anos)**.
 - **Suporte a Gestantes**: Seção específica para mulheres grávidas, considerando peso pré-gestacional e semana da gestação.
 - **Análise de Peso Ideal**: O app calcula automaticamente a sua faixa de peso saudável com base na sua altura.
 - **Metas Dinâmicas**: Exibe mensagens personalizadas informando quantos quilos você precisa ganhar ou perder para atingir o peso ideal.
