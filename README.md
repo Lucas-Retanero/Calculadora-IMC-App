@@ -1,8 +1,8 @@
-# Calculadora de IMC (Aplicativo Mobile)
+# Calculadora de IMC Multiperfil (Aplicativo Mobile)
 
 ## Sobre o Projeto
 
-Este aplicativo foi desenvolvido em React Native e tem como principal objetivo o cálculo do Índice de Massa Corporal (IMC). A aplicação solicita ao usuário os dados de peso e altura para processar o cálculo e exibir o resultado, juntamente com a classificação correspondente, de acordo com os padrões de saúde.
+Este aplicativo foi desenvolvido em React Native e oferece uma solução completa para o cálculo do Índice de Massa Corporal (IMC). Diferente de calculadoras convencionais, este projeto foi projetado com algoritmos específicos para diferentes perfis (adultos, idosos e crianças), suporte para gestantes e um design moderno focado na experiência do usuário e visualização de dados.
 
 <p align="center">
   <br>
@@ -12,60 +12,70 @@ Este aplicativo foi desenvolvido em React Native e tem como principal objetivo o
 
 ---
 
-## Tecnologias
+## Design e Interface
 
-A construção deste projeto foi baseada nas seguintes tecnologias:
-
-- **React Native**: Framework para o desenvolvimento de aplicações móveis multiplataforma.
-- **Expo**: Plataforma e conjunto de ferramentas que otimizam o desenvolvimento em React Native.
-- **JavaScript**: Linguagem de programação utilizada para a lógica da aplicação.
+O aplicativo utiliza uma identidade visual moderna na cor **Azul (#4180ab)**, proporcionando uma leitura clara e profissional. O feedback visual inclui:
+- **Círculo de IMC**: Destaque numérico imediato.
+- **Barra de Progresso Colorida**: Segmentos que indicam visualmente onde o usuário se encontra na escala de saúde.
+- **Marcador Dinâmico**: Posicionamento preciso na régua de resultados.
 
 ---
 
 ## Principais Funcionalidades
 
-- **Entrada de Dados**: Permite ao usuário inserir valores de peso (em kg) e altura (em metros).
-- **Processamento de Cálculo**: Executa o cálculo do IMC após a inserção dos dados.
-- **Exibição de Resultados**: Apresenta o valor numérico do IMC de forma clara.
-- **Sistema de Classificação**: Informa a categoria de saúde associada ao IMC calculado (ex: Abaixo do peso, Peso normal, Sobrepeso).
-- **Interface de Reset**: Oferece uma função para limpar os campos e realizar uma nova consulta.
+- **Seleção de Perfil Inteligente**: Ajusta a lógica de cálculo para **Adultos**, **Idosos (60+)** e **Crianças (2-19 meses    )**.
+- **Suporte a Gestantes**: Seção específica para mulheres grávidas, considerando peso pré-gestacional e semana da gestação.
+- **Análise de Peso Ideal**: O app calcula automaticamente a sua faixa de peso saudável com base na sua altura.
+- **Metas Dinâmicas**: Exibe mensagens personalizadas informando quantos quilos você precisa ganhar ou perder para atingir o peso ideal.
+- **Entrada de Dados Flexível**: Suporte para números decimais utilizando tanto ponto quanto vírgula, adaptado ao padrão brasileiro.
+- **Sistema de Classificação Detalhado**: Categorias que vão desde Magreza até Obesidade Grau III.
+- **Interface de Reset**: Limpa todos os estados e campos com um único clique para novos cálculos.
+
+---
+
+## Tecnologias
+
+A construção deste projeto foi baseada nas seguintes tecnologias:
+
+- **React Native**: Framework para o desenvolvimento multiplataforma.
+- **Expo**: Plataforma de ferramentas para otimização do fluxo de desenvolvimento.
+- **JavaScript (ES6+)**: Lógica de programação e manipulação de estados.
+- **Expo Vector Icons**: Biblioteca de ícones (MaterialCommunityIcons, Ionicons, FontAwesome5, Feather).
 
 ---
 
 ## Guia de Instalação e Execução
 
-Para executar este projeto em um ambiente de desenvolvimento local, siga as instruções abaixo.
-
 ### Pré-requisitos
 
-Certifique-se de que os seguintes softwares estejam instalados em sua máquina:
+Certifique-se de que os seguintes softwares estejam instalados:
 - [Node.js](https://nodejs.org/en/) (versão LTS recomendada)
 - [NPM](https://www.npmjs.com/) ou [Yarn](https://yarnpkg.com/)
-- O aplicativo **Expo Go** em um dispositivo móvel (Android/iOS) para testes.
+- Aplicativo **Expo Go** no celular para testes físicos.
 
 ### Passos para Execução
 
-1.  **Clone o repositório do projeto:**
+1.  **Clone o repositório:**
     ```bash
-    git clone https://github.com/Lucas-Retanero/Calculadora-IMC-App.git
+    git clone [https://github.com/Lucas-Retanero/Calculadora-IMC-App.git](https://github.com/Lucas-Retanero/Calculadora-IMC-App.git)
     ```
 
-2.  **Navegue até o diretório raiz do projeto:**
+2.  **Entre na pasta do projeto:**
     ```bash
     cd Calculadora-IMC-App
     ```
 
-3.  **Instale todas as dependências necessárias:**
+3.  **Instale as dependências:**
     ```bash
     npm install
     ```
 
-4.  **Inicie o servidor de desenvolvimento do Expo:**
+4.  **Inicie o servidor do Expo:**
     ```bash
     npx expo start
     ```
 
-Após a execução do último comando, um QR Code será exibido no terminal. Utilize o aplicativo **Expo Go** em seu smartphone para escanear o código e carregar o aplicativo.
+Escaneie o QR Code com o aplicativo **Expo Go** no seu Android ou com a câmera no seu iOS.
 
 ---
 
